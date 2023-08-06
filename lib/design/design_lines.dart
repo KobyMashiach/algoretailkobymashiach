@@ -92,19 +92,21 @@ class DesignLines {
           children: [
             Text(
               label,
-              style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
+              style: const TextStyle(
+                  color: Colors.blue, fontWeight: FontWeight.bold),
             ),
             Text(
               time,
-              style: TextStyle(fontSize: 12),
+              style: const TextStyle(fontSize: 12),
             ),
             time == "ספירת בוקר"
-                ? Icon(Icons.sunny, color: Colors.green[200])
+                ? const Icon(Icons.sunny,
+                    color: Color.fromARGB(255, 199, 222, 24))
                 : Transform.rotate(
                     angle: -1,
-                    child: Icon(
+                    child: const Icon(
                       Icons.nightlight_round,
-                      color: Colors.pink[100],
+                      color: Color.fromARGB(255, 227, 186, 186),
                     ),
                   )
           ],

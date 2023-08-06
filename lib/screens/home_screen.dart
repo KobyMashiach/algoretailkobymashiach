@@ -15,6 +15,8 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   List _tasks = [];
+  final TextEditingController _searchController = TextEditingController();
+
   Future<void> readJson() async {
     final String response = await rootBundle.loadString('lib/data/tasks.json');
     final data = await json.decode(response);
@@ -40,20 +42,37 @@ class _HomeScreenState extends State<HomeScreen> {
         body: Column(
           children: [
             // -----------------search-----------------
-            const Divider(
-              height: 20,
-              thickness: 2,
-            ),
-            const Row(
-              children: [
-                SizedBox(width: 20),
-                Icon(Icons.search),
-                Text("   חיפוש"),
-              ],
-            ),
-            const Divider(
-              height: 20,
-              thickness: 2,
+            Padding(
+              padding: const EdgeInsets.only(right: 25, left: 25),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: const Color.fromARGB(
+                      255, 236, 236, 236), // Container color
+                  borderRadius: BorderRadius.circular(20.0), // Radius value
+                ),
+                child: Row(
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.only(right: 10),
+                      child: Icon(Icons.search, color: Colors.black38),
+                    ),
+                    const SizedBox(width: 5),
+                    Expanded(
+                      child: TextField(
+                        style: const TextStyle(color: Colors.black54),
+                        controller: _searchController,
+                        decoration: const InputDecoration(
+                          hintText: 'חיפוש',
+                          hintStyle: TextStyle(color: Colors.black38),
+                          border: InputBorder.none,
+                        ),
+                        onChanged: (value) => setState(
+                            () {}), // refresh the list when search query changes
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
             // -----------------search-----------------
             Expanded(
