@@ -95,52 +95,56 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               // -----------------search-----------------
               Expanded(
-                  child: ListView.builder(
-                      itemCount: filteredItems.length,
-                      itemBuilder: (context, index) {
-                        switch (_tasks[index]["task_name"]) {
-                          case "מילוי עגלה":
-                            return Column(
-                              children: [
-                                appDesign.appDivider(),
-                                appDesign.cartFilling(
-                                  appDesign,
-                                  _tasks[index]["task_name"],
-                                  fixString.cartFillingArrayTitle(
-                                      _tasks[index]["array"].toString()),
-                                  fixString.cartFillingArrayCount(
-                                      _tasks[index]["array"].toString()),
-                                )
-                              ],
-                            );
-                          case "פיזור עגלה":
-                            return Column(
-                              children: [
-                                appDesign.appDivider(),
-                                appDesign.cartDistribution(
-                                    context,
-                                    appDesign,
-                                    _tasks[index]["task_name"],
-                                    _tasks[index]["cart_number"],
-                                    _tasks[index]["urgency"],
-                                    _tasks[index]["task_id"])
-                              ],
-                            );
-                          case "ספירת מלאי":
-                            return Column(
-                              children: [
-                                appDesign.appDivider(),
-                                appDesign.inventoryCount(
-                                    context,
-                                    appDesign,
-                                    _tasks[index]["task_name"],
-                                    _tasks[index]["time"],
-                                    _tasks[index]["task_id"])
-                              ],
-                            );
-                        }
-                        return null;
-                      }))
+                  child: filteredItems.isEmpty
+                      ? Text("לא נמצאו תוצאות")
+                      : ListView.builder(
+                          itemCount: filteredItems.length,
+                          itemBuilder: (context, index) {
+                            switch (filteredItems[index]["task_name"]) {
+                              case "מילוי עגלה":
+                                return Column(
+                                  children: [
+                                    appDesign.appDivider(),
+                                    appDesign.cartFilling(
+                                      appDesign,
+                                      filteredItems[index]["task_name"],
+                                      fixString.cartFillingArrayTitle(
+                                          filteredItems[index]["array"]
+                                              .toString()),
+                                      fixString.cartFillingArrayCount(
+                                          filteredItems[index]["array"]
+                                              .toString()),
+                                    )
+                                  ],
+                                );
+                              case "פיזור עגלה":
+                                return Column(
+                                  children: [
+                                    appDesign.appDivider(),
+                                    appDesign.cartDistribution(
+                                        context,
+                                        appDesign,
+                                        filteredItems[index]["task_name"],
+                                        filteredItems[index]["cart_number"],
+                                        filteredItems[index]["urgency"],
+                                        filteredItems[index]["task_id"])
+                                  ],
+                                );
+                              case "ספירת מלאי":
+                                return Column(
+                                  children: [
+                                    appDesign.appDivider(),
+                                    appDesign.inventoryCount(
+                                        context,
+                                        appDesign,
+                                        filteredItems[index]["task_name"],
+                                        filteredItems[index]["time"],
+                                        filteredItems[index]["task_id"])
+                                  ],
+                                );
+                            }
+                            return null;
+                          }))
             ],
           ),
         ),
