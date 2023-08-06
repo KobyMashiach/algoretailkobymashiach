@@ -15,7 +15,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   List _tasks = [];
-  final TextEditingController _searchController = TextEditingController();
+  String _searchQuery = "";
 
   Future<void> readJson() async {
     final String response = await rootBundle.loadString('lib/data/tasks.json');
@@ -35,6 +35,10 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     DesignLines appDesign = DesignLines();
     FixString fixString = FixString();
+
+    List filteredItems = _tasks
+        .where((task) => task['task_name'].toString().contains(_searchQuery))
+        .toList();
 
     return SafeArea(
       child: Scaffold(
@@ -60,14 +64,22 @@ class _HomeScreenState extends State<HomeScreen> {
                     Expanded(
                       child: TextField(
                         style: const TextStyle(color: Colors.black54),
-                        controller: _searchController,
+                        controller: TextEditingController.fromValue(
+                          TextEditingValue(
+                              text: _searchQuery,
+                              selection: TextSelection(
+                                baseOffset: _searchQuery.length,
+                                extentOffset: _searchQuery.length,
+                              )),
+                        ),
                         decoration: const InputDecoration(
                           hintText: 'חיפוש',
                           hintStyle: TextStyle(color: Colors.black38),
                           border: InputBorder.none,
                         ),
-                        onChanged: (value) => setState(
-                            () {}), // refresh the list when search query changes
+                        onChanged: (value) => setState(() {
+                          _searchQuery = value;
+                        }),
                       ),
                     ),
                   ],
@@ -77,7 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
             // -----------------search-----------------
             Expanded(
                 child: ListView.builder(
-                    itemCount: _tasks.length,
+                    itemCount: filteredItems.length,
                     itemBuilder: (context, index) {
                       switch (_tasks[index]["task_name"]) {
                         case "מילוי עגלה":
