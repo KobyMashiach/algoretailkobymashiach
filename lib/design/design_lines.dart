@@ -10,13 +10,13 @@ class DesignLines {
     );
   }
 
-  appButtons(Function() onpress, Icon icon, String label) {
+  appButtons(Function() onpress, Icon? icon, String label) {
     return InkWell(
       onTap: onpress,
       child: Row(
         children: [
           const SizedBox(width: 20),
-          icon,
+          icon ?? const SizedBox(),
           const SizedBox(width: 10),
           Text(label),
         ],
