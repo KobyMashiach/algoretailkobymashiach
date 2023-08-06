@@ -25,6 +25,12 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   @override
+  void initState() {
+    readJson();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     DesignLines appDesign = DesignLines();
     ShowTasks showTasks = ShowTasks();
@@ -52,27 +58,19 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             // -----------------search-----------------
             appDesign.appDivider(),
-            _tasks.isNotEmpty
-                ? Expanded(
-                    child: ListView.builder(
-                        itemCount: _tasks.length,
-                        itemBuilder: (context, index) {
-                          switch (_tasks[index]["task_name"]) {
-                            case "מילוי עגלה":
-                              return showTasks.cartFilling(appDesign);
-                            case "פיזור עגלה":
-                              return showTasks.cartDistribution(appDesign);
-                            case "ספירת מלאי":
-                              return showTasks.inventoryCount(appDesign);
-                          }
-                        }))
-                : ElevatedButton(
-                    onPressed: () {
-                      readJson();
-                    },
-                    child: const Center(
-                      child: Text("Load Json"),
-                    ))
+            Expanded(
+                child: ListView.builder(
+                    itemCount: _tasks.length,
+                    itemBuilder: (context, index) {
+                      switch (_tasks[index]["task_name"]) {
+                        case "מילוי עגלה":
+                          return showTasks.cartFilling(appDesign);
+                        case "פיזור עגלה":
+                          return showTasks.cartDistribution(appDesign);
+                        case "ספירת מלאי":
+                          return showTasks.inventoryCount(appDesign);
+                      }
+                    }))
           ],
         ),
       ),
