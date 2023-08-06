@@ -1,9 +1,8 @@
 import 'dart:convert';
 
+import 'package:algoretailkobymashiach/data/fixStrings.dart';
 import 'package:algoretailkobymashiach/design/appbar.dart';
 import 'package:algoretailkobymashiach/design/design_lines.dart';
-import 'package:algoretailkobymashiach/design/show_tasks.dart';
-import 'package:algoretailkobymashiach/widgets/appToasts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -33,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     DesignLines appDesign = DesignLines();
-    ShowTasks showTasks = ShowTasks();
+    FixString fixString = FixString();
 
     return SafeArea(
       child: Scaffold(
@@ -66,21 +65,32 @@ class _HomeScreenState extends State<HomeScreen> {
                           return Column(
                             children: [
                               appDesign.appDivider(),
-                              showTasks.cartFilling(appDesign)
+                              appDesign.cartFilling(
+                                appDesign,
+                                _tasks[index]["task_name"],
+                                fixString.cartFillingArrayTitle(
+                                    _tasks[index]["array"].toString()),
+                                fixString.cartFillingArrayCount(
+                                    _tasks[index]["array"].toString()),
+                              )
                             ],
                           );
                         case "פיזור עגלה":
                           return Column(
                             children: [
                               appDesign.appDivider(),
-                              showTasks.cartDistribution(appDesign)
+                              appDesign.cartDistribution(
+                                  appDesign,
+                                  _tasks[index]["task_name"],
+                                  _tasks[index]["cart_number"])
                             ],
                           );
                         case "ספירת מלאי":
                           return Column(
                             children: [
                               appDesign.appDivider(),
-                              showTasks.inventoryCount(appDesign)
+                              appDesign.inventoryCount(
+                                  appDesign, _tasks[index]["task_name"])
                             ],
                           );
                       }
