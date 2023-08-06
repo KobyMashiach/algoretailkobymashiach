@@ -23,18 +23,18 @@ class DesignLines {
           Text(label),
           const Spacer(),
           Padding(
-            padding: EdgeInsets.only(left: 25),
+            padding: const EdgeInsets.only(left: 25),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   "מערך: $title",
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                  style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
                 Text(
                   "פריטים: $count",
                   textAlign: TextAlign.right,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 12,
                   ),
                 ),
@@ -46,7 +46,13 @@ class DesignLines {
     );
   }
 
-  cartDistribution(DesignLines appDesign, String label, String cart_number) {
+  cartDistribution(
+    BuildContext context,
+    DesignLines appDesign,
+    String label,
+    String cartNumber,
+    String urgency,
+  ) {
     return InkWell(
       onTap: () {},
       child: Row(
@@ -57,28 +63,51 @@ class DesignLines {
           ),
           const SizedBox(width: 10),
           Text(label),
-          const Spacer(),
-          Text(cart_number),
+          SizedBox(width: MediaQuery.sizeOf(context).width / 4),
+          Text(cartNumber),
           const Spacer(),
           Padding(
             padding: const EdgeInsets.only(left: 25),
-            child: Text(label),
+            child: Row(
+              children: [
+                Text(
+                  urgency,
+                  style: const TextStyle(
+                      color: Colors.red, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(width: 3),
+                const Icon(Icons.arrow_circle_left_outlined)
+              ],
+            ),
           ),
         ],
       ),
     );
   }
 
-  inventoryCount(DesignLines appDesign, String label) {
+  inventoryCount(DesignLines appDesign, String label, String time) {
     return InkWell(
-      onTap: () {},
-      child: Row(
-        children: [
-          const SizedBox(width: 20),
-          const SizedBox(width: 10),
-          Text(label),
-        ],
-      ),
-    );
+        onTap: () {},
+        child: Column(
+          children: [
+            Text(
+              label,
+              style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
+            ),
+            Text(
+              time,
+              style: TextStyle(fontSize: 12),
+            ),
+            time == "ספירת בוקר"
+                ? Icon(Icons.sunny, color: Colors.green[200])
+                : Transform.rotate(
+                    angle: -1,
+                    child: Icon(
+                      Icons.nightlight_round,
+                      color: Colors.pink[100],
+                    ),
+                  )
+          ],
+        ));
   }
 }

@@ -9,18 +9,23 @@
       {
         "task_name": "פיזור עגלה",
         "cart_number": "Z 1",
-        "urgency": {
-          "urgent": "דחוף",
-          "not_urgent": ""
-        }
+        "urgency": "דחוף"
       },
       {
         "task_name": "ספירת מלאי",
-        "time": {
-          "morning": "ספירת בוקר",
-          "night": "ספירת לילה"
-        }
+        "time": "ספירת בוקר"
+      },
+      {
+        "task_name": "פיזור עגלה",
+        "cart_number": "Z 2",
+        "urgency": ""
+      },
+      {
+        "task_name": "ספירת מלאי",
+        "time": "ספירת לילה"
       }
     ]
   }
+
+  
   

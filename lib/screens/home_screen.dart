@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:algoretailkobymashiach/data/fixStrings.dart';
+import 'package:algoretailkobymashiach/data/fix_strings.dart';
 import 'package:algoretailkobymashiach/design/appbar.dart';
 import 'package:algoretailkobymashiach/design/design_lines.dart';
 import 'package:flutter/material.dart';
@@ -80,9 +80,12 @@ class _HomeScreenState extends State<HomeScreen> {
                             children: [
                               appDesign.appDivider(),
                               appDesign.cartDistribution(
-                                  appDesign,
-                                  _tasks[index]["task_name"],
-                                  _tasks[index]["cart_number"])
+                                context,
+                                appDesign,
+                                _tasks[index]["task_name"],
+                                _tasks[index]["cart_number"],
+                                _tasks[index]["urgency"],
+                              )
                             ],
                           );
                         case "ספירת מלאי":
@@ -90,7 +93,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             children: [
                               appDesign.appDivider(),
                               appDesign.inventoryCount(
-                                  appDesign, _tasks[index]["task_name"])
+                                  appDesign,
+                                  _tasks[index]["task_name"],
+                                  _tasks[index]["time"])
                             ],
                           );
                       }
