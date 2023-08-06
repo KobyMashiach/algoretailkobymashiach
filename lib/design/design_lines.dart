@@ -11,16 +11,42 @@ class DesignLines {
   }
 
   appButtons(Function() onpress, Icon? icon, String label) {
-    return InkWell(
-      onTap: onpress,
-      child: Row(
-        children: [
-          const SizedBox(width: 20),
-          icon ?? const SizedBox(),
-          const SizedBox(width: 10),
-          Text(label),
-        ],
-      ),
-    );
+    if (label == "מילוי עגלה") {
+      return InkWell(
+        onTap: onpress,
+        child: Row(
+          children: [
+            const SizedBox(width: 20),
+            icon ?? const SizedBox(),
+            const SizedBox(width: 10),
+            Text(label),
+          ],
+        ),
+      );
+    } else if (label == "ריקון עגלה") {
+      return InkWell(
+        onTap: onpress,
+        child: Row(
+          children: [
+            const SizedBox(width: 20),
+            icon ?? const SizedBox(),
+            const SizedBox(width: 10),
+            Text(label),
+          ],
+        ),
+      );
+    } else {
+      return InkWell(
+        onTap: onpress,
+        child: Row(
+          children: [
+            const SizedBox(width: 20),
+            icon ?? const SizedBox(),
+            const SizedBox(width: 10),
+            Text(label),
+          ],
+        ),
+      );
+    }
   }
 }

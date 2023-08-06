@@ -57,19 +57,34 @@ class _HomeScreenState extends State<HomeScreen> {
               thickness: 2,
             ),
             // -----------------search-----------------
-            appDesign.appDivider(),
             Expanded(
                 child: ListView.builder(
                     itemCount: _tasks.length,
                     itemBuilder: (context, index) {
                       switch (_tasks[index]["task_name"]) {
                         case "מילוי עגלה":
-                          return showTasks.cartFilling(appDesign);
+                          return Column(
+                            children: [
+                              appDesign.appDivider(),
+                              showTasks.cartFilling(appDesign)
+                            ],
+                          );
                         case "פיזור עגלה":
-                          return showTasks.cartDistribution(appDesign);
+                          return Column(
+                            children: [
+                              appDesign.appDivider(),
+                              showTasks.cartDistribution(appDesign)
+                            ],
+                          );
                         case "ספירת מלאי":
-                          return showTasks.inventoryCount(appDesign);
+                          return Column(
+                            children: [
+                              appDesign.appDivider(),
+                              showTasks.inventoryCount(appDesign)
+                            ],
+                          );
                       }
+                      return null;
                     }))
           ],
         ),
