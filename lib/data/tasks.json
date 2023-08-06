@@ -1,26 +1,31 @@
 {
     "tasks": [
       {
+        "task_id": "1",
         "task_name": "מילוי עגלה",
         "array": {
           "מתוקים": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
         }
       },
       {
+        "task_id": "2",
         "task_name": "פיזור עגלה",
         "cart_number": "Z 1",
         "urgency": "דחוף"
       },
       {
+        "task_id": "3",
         "task_name": "ספירת מלאי",
         "time": "ספירת בוקר"
       },
       {
+        "task_id": "4",
         "task_name": "פיזור עגלה",
         "cart_number": "Z 2",
         "urgency": ""
       },
       {
+        "task_id": "5",
         "task_name": "ספירת מלאי",
         "time": "ספירת לילה"
       }
