@@ -4,7 +4,6 @@ import 'package:algoretailkobymashiach/data/fix_strings.dart';
 import 'package:algoretailkobymashiach/design/appbar.dart';
 import 'package:algoretailkobymashiach/design/design_lines.dart';
 import 'package:algoretailkobymashiach/screens/second_page.dart';
-import 'package:algoretailkobymashiach/widgets/appToasts.dart';
 import 'package:algoretailkobymashiach/widgets/app_navigator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -96,7 +95,7 @@ class _HomeScreenState extends State<HomeScreen> {
               // -----------------search-----------------
               Expanded(
                   child: filteredItems.isEmpty
-                      ? Text("לא נמצאו תוצאות")
+                      ? const Text("לא נמצאו תוצאות")
                       : ListView.builder(
                           itemCount: filteredItems.length,
                           itemBuilder: (context, index) {

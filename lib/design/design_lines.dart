@@ -1,5 +1,4 @@
 import 'package:algoretailkobymashiach/screens/second_page.dart';
-import 'package:algoretailkobymashiach/widgets/appToasts.dart';
 import 'package:algoretailkobymashiach/widgets/app_navigator.dart';
 import 'package:flutter/material.dart';
 
