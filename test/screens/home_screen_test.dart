@@ -1,4 +1,5 @@
 import 'package:algoretailkobymashiach/screens/home_screen.dart';
+import 'package:algoretailkobymashiach/screens/second_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -42,21 +43,4 @@ void main() {
       expect(find.byIcon(Icons.search), findsOneWidget);
     },
   );
-
-  // testWidgets(
-  //   '3. check if clicked on screen go to second page with id "1"',
-  //   (tester) async {
-  //     await tester.pumpWidget(
-  //       const MaterialApp(
-  //         home: HomeScreen(),
-  //       ),
-  //     );
-  //     final pageClicked = find.byKey(const Key('all_screen_tap'));
-  //     await tester.tap(pageClicked);
-  //     await tester.pump();
-
-  //     final mission1 = find.text("מס' משימה");
-  //     expect(mission1, findsOneWidget);
-  //   },
-  // );
 }

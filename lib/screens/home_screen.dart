@@ -41,11 +41,12 @@ class _HomeScreenState extends State<HomeScreen> {
     List filteredItems = _tasks
         .where((task) => task['task_name'].toString().contains(_searchQuery))
         .toList();
-
+    readJson();
     return SafeArea(
       child: Scaffold(
         appBar: appAppbar(title: "משימות"),
         body: GestureDetector(
+          key: const Key('all_screen_tap'),
           behavior: HitTestBehavior.opaque,
           onTap: () => AppNavigator()
               .push(context, TaskScreen(taskId: _tasks[0]["task_id"])),
