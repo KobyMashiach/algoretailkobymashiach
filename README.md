@@ -27,7 +27,7 @@
 
 ## About The Project
 <p align="center">
-<img src="https://gifture.co.il/wp-content/uploads/2023/08/appScreenShot.jpg" height="300">
+<img src="https://gifture.co.il/wp-content/uploads/2023/08/appScreenShot.jpg" height="400">
 
 The goal of this project is to design and build scalable and lightweight mobile application. Our primary focus is to see how you’d design application from an architectural point of view using modern Flutter approaches and design patterns.
 
