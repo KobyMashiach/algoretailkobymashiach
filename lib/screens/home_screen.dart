@@ -95,7 +95,10 @@ class _HomeScreenState extends State<HomeScreen> {
               // -----------------search-----------------
               Expanded(
                   child: filteredItems.isEmpty
-                      ? const Text("לא נמצאו תוצאות")
+                      ? const Padding(
+                          padding: EdgeInsets.all(30),
+                          child: Text("לא נמצאו תוצאות"),
+                        )
                       : ListView.builder(
                           itemCount: filteredItems.length,
                           itemBuilder: (context, index) {
