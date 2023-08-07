@@ -18,7 +18,7 @@
 ## Table Of Contents
 
 * [About the Project](#about-the-project)
-* [Code example](#code-example)
+* [Code examples](#code-examples)
 * [Built With](#built-with)
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
@@ -31,7 +31,7 @@
 
 The goal of this project is to design and build scalable and lightweight mobile application. Our primary focus is to see how you’d design application from an architectural point of view using modern Flutter approaches and design patterns.
 
-## Code example
+## Code examples
 ### search tasks
 ```
 TextField(
