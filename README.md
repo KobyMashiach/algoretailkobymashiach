@@ -18,20 +18,23 @@
 ## Table Of Contents
 
 * [About the Project](#about-the-project)
+* [Code example](#code-example)
 * [Built With](#built-with)
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
-* [Contributing](#contributing)
-* [License](#license)
 * [Authors](#authors)
-* [Acknowledgements](#acknowledgements)
 
 ## About The Project
 <p align="center">
 <img src="https://gifture.co.il/wp-content/uploads/2023/08/appScreenShot.jpg" height="300">
 
 The goal of this project is to design and build scalable and lightweight mobile application. Our primary focus is to see how you’d design application from an architectural point of view using modern Flutter approaches and design patterns.
+
+## Code example
+fdgfdg
+
+
 
 ## Built With
 
