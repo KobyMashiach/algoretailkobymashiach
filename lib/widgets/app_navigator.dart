@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 
 class AppNavigator {
+  // push navigator (save all last pages from memory)
   push(BuildContext context, Widget page) {
     try {
       Navigator.of(context).push(
@@ -15,6 +16,7 @@ class AppNavigator {
     } catch (e) {}
   }
 
+  // push navigator (delete all last pages from memory)
   pushAndRemoveUntil(BuildContext context, Widget page) {
     try {
       Navigator.of(context).pushAndRemoveUntil(
@@ -28,6 +30,7 @@ class AppNavigator {
     } catch (e) {}
   }
 
+  // push navigator (delete just last page from memory)
   pushReplacement(BuildContext context, Widget page) {
     try {
       Navigator.of(context)
@@ -35,6 +38,7 @@ class AppNavigator {
     } catch (e) {}
   }
 
+  // pop navigator (close correct page)
   pop(BuildContext context) {
     try {
       Navigator.of(context).pop();

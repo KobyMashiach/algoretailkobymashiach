@@ -13,6 +13,7 @@ class TaskScreen extends StatelessWidget {
       appBar: appAppbar(title: "מסך 2"),
       body: Center(
           child: Text(
+        // get task id from first page
         "מס' משימה $taskId",
         style: const TextStyle(fontSize: 20),
       )),

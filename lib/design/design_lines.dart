@@ -2,7 +2,9 @@ import 'package:algoretailkobymashiach/screens/second_page.dart';
 import 'package:algoretailkobymashiach/widgets/app_navigator.dart';
 import 'package:flutter/material.dart';
 
+// design of the home page
 class DesignLines {
+  // divider design
   appDivider() {
     return const Padding(
       padding: EdgeInsets.only(right: 25, left: 25, top: 10, bottom: 10),
@@ -12,6 +14,7 @@ class DesignLines {
     );
   }
 
+  // cart filling task design
   cartFilling(DesignLines appDesign, String label, String title, int count) {
     return Row(
       children: [
@@ -25,6 +28,7 @@ class DesignLines {
         Padding(
           padding: const EdgeInsets.only(left: 25),
           child: Column(
+            // text start from right
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
@@ -45,6 +49,7 @@ class DesignLines {
     );
   }
 
+// cart distribution task design
   cartDistribution(
     BuildContext context,
     DesignLines appDesign,
@@ -76,6 +81,7 @@ class DesignLines {
               const SizedBox(width: 3),
               InkWell(
                   onTap: () {
+                    // send the tapped task id to next page
                     AppNavigator().push(context, TaskScreen(taskId: id));
                   },
                   child: const Icon(Icons.arrow_circle_left_outlined))
@@ -86,6 +92,7 @@ class DesignLines {
     );
   }
 
+// Inventory count task design
   inventoryCount(BuildContext context, DesignLines appDesign, String label,
       String time, String id) {
     return Column(
@@ -96,7 +103,7 @@ class DesignLines {
               const TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
         ),
         Text(
-          time,
+          time, // morning or night
           style: const TextStyle(fontSize: 12),
         ),
         InkWell(
@@ -108,7 +115,9 @@ class DesignLines {
 
   Widget sunOrMoon(String time) {
     return time == "ספירת בוקר"
+        // if morning
         ? const Icon(Icons.sunny, color: Color.fromARGB(255, 199, 222, 24))
+        // if night
         : Transform.rotate(
             angle: -1,
             child: const Icon(

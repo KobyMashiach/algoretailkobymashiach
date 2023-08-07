@@ -1,12 +1,12 @@
 class FixString {
-  // _tasks[index]["array"]
+  // Title of array
   cartFillingArrayTitle(String string) {
     String titleString = string.substring(1, string.indexOf(':'));
     return titleString;
   }
 
+  // Counting items in an array
   cartFillingArrayCount(String string) {
-    // _tasks[index]["array"]
     String countString =
         string.substring(string.indexOf(':'), string.length - 1);
     List<String> countList = countString

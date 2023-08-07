@@ -16,20 +16,23 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List _tasks = [];
-  String _searchQuery = "";
+  List _tasks = []; // array for json file
+  String _searchQuery = ""; // search value
 
   Future<void> readJson() async {
-    final String response = await rootBundle.loadString('lib/data/tasks.json');
+    final String response =
+        await rootBundle.loadString('lib/data/tasks.json'); // local json
+    // if you want 5 tasks like first page in PDF change tasks.json to tasks_five.json
+
     final data = await json.decode(response);
     setState(() {
-      _tasks = data["tasks"];
+      _tasks = data["tasks"]; // put json string in the array
     });
   }
 
   @override
   void initState() {
-    readJson();
+    readJson(); // read the json before build
     super.initState();
   }
 
@@ -40,11 +43,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
     List filteredItems = _tasks
         .where((task) => task['task_name'].toString().contains(_searchQuery))
-        .toList();
-    readJson();
+        .toList(); // filteredItems is tasks list after filter search
     return SafeArea(
       child: Scaffold(
         appBar: appAppbar(title: "משימות"),
+        // By clicking on the entire page except for the buttons he defined go to cartFilling
         body: GestureDetector(
           key: const Key('all_screen_tap'),
           behavior: HitTestBehavior.opaque,
@@ -52,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
               .push(context, TaskScreen(taskId: _tasks[0]["task_id"])),
           child: Column(
             children: [
-              // -----------------search-----------------
+              // --------------search bloc-------------
               Padding(
                 padding: const EdgeInsets.only(right: 25, left: 25),
                 child: Container(
@@ -86,6 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           onChanged: (value) => setState(() {
                             _searchQuery = value;
+                            // change _searchQuery by controller to filter the types
                           }),
                         ),
                       ),
@@ -93,16 +97,19 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ),
-              // -----------------search-----------------
+              // --------------search bloc-------------
               Expanded(
                   child: filteredItems.isEmpty
+                      // If there are no search results
                       ? const Padding(
                           padding: EdgeInsets.all(30),
                           child: Text("לא נמצאו תוצאות"),
                         )
+                      // If there are results for the search
                       : ListView.builder(
                           itemCount: filteredItems.length,
                           itemBuilder: (context, index) {
+                            // display by type
                             switch (filteredItems[index]["task_name"]) {
                               case "מילוי עגלה":
                                 return Column(
