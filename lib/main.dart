@@ -2,13 +2,13 @@ import 'package:algoretailkobymashiach/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-// ---------------------------------------------------------------- explain on app ----------------------------------------------------------------
-// -------------------------------------------------------------------------------------------------------------------------------------------------
-// This is an create and display tasks application I wrote as part of a home assignment provided to me by Algoretail.
-// The goal of this project is to design and build scalable and lightweight mobile application.
-// Our primary focus is to see how you’d design application from an architectural point of view using modern Flutter approaches and design patterns.
-// -------------------------------------------------------------------------------------------------------------------------------------------------
-// ---------------------------------------------------------------- explain on app ----------------------------------------------------------------
+/* ---------------------------------------------------------------- explain on app ----------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+This is an create and display tasks application I wrote as part of a home assignment provided to me by Algoretail.
+The goal of this project is to design and build scalable and lightweight mobile application.
+Our primary focus is to see how you’d design application from an architectural point of view using modern Flutter approaches and design patterns.
+---------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------- explain on app ---------------------------------------------------------------- */
 
 void main() {
   runApp(const MyApp());
