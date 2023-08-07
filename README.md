@@ -188,10 +188,6 @@ https://github.com/KobyMashiach/algoretailkobymashiach.git
 4. Click on 'Clone Repository'
 5. Paste the Url and click Enter
 
-## License
-
-Distributed under the MIT License. See [LICENSE](https://github.com/kobymashiach/algoretailkobymashiach/blob/main/LICENSE.md) for more information.
-
 ## Authors
 
 ## **[Koby Mashiach](https://github.com/KobyMashiach)** - *Software Engineer*
