@@ -11,7 +11,45 @@ Our primary focus is to see how you’d design application from an architectural
 ------------------------------------------------------------------- explain on app ---------------------------------------------------------------- */
 
 void main() {
+  ErrorWidget.builder = (FlutterErrorDetails details) {
+    return ErrorMessage(details: details);
+  };
   runApp(const MyApp());
+}
+
+class ErrorMessage extends StatelessWidget {
+  final FlutterErrorDetails details;
+  const ErrorMessage({
+    required this.details,
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      child: Container(
+        color: Colors.black,
+        child: Directionality(
+          textDirection: TextDirection.ltr,
+          child: Padding(
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Error: ${details.exceptionAsString()}",
+                  style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
+                )
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 }
 
 class MyApp extends StatelessWidget {
