@@ -1,5 +1,8 @@
+import 'package:algoretailkobymashiach/bloc/tasks_bloc.dart';
 import 'package:algoretailkobymashiach/screens/home_screen.dart';
+import 'package:algoretailkobymashiach/screens/home_screen2.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 /* ---------------------------------------------------------------- explain on app ----------------------------------------------------------------
@@ -57,28 +60,35 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      // text in all the application is rtl
-      localizationsDelegates: const [
-        GlobalCupertinoLocalizations.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => TasksBloc()..add(LoadTasksEvent()),
+        )
       ],
-      supportedLocales: const [
-        Locale("he", "IR"), // OR Locale('ar', 'AE') OR Other RTL locales
-      ],
-      locale: const Locale(
-          "he", "IR"), // OR Locale('ar', 'AE') OR Other RTL locales,
-      title: 'Algoretail Koby Mashiach',
-      // remove debug banner
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-            seedColor: const Color.fromARGB(255, 75, 75, 75)),
-        useMaterial3: true,
+      child: MaterialApp(
+        // text in all the application is rtl
+        localizationsDelegates: const [
+          GlobalCupertinoLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+        ],
+        supportedLocales: const [
+          Locale("he", "IR"), // OR Locale('ar', 'AE') OR Other RTL locales
+        ],
+        locale: const Locale(
+            "he", "IR"), // OR Locale('ar', 'AE') OR Other RTL locales,
+        title: 'Algoretail Koby Mashiach',
+        // remove debug banner
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(
+              seedColor: const Color.fromARGB(255, 75, 75, 75)),
+          useMaterial3: true,
+        ),
+        // start with Home Screen page
+        home: const HomeScreen2(),
       ),
-      // start with Home Screen page
-      home: const HomeScreen(),
     );
   }
 }
