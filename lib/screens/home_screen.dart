@@ -5,6 +5,7 @@ import 'package:algoretailkobymashiach/data/fix_strings.dart';
 import 'package:algoretailkobymashiach/design/appbar.dart';
 import 'package:algoretailkobymashiach/design/design_lines.dart';
 import 'package:algoretailkobymashiach/screens/second_page.dart';
+import 'package:algoretailkobymashiach/widgets/appToasts.dart';
 import 'package:algoretailkobymashiach/widgets/app_navigator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -54,6 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
           if (state is TasksInitialState) {
             return const CircularProgressIndicator();
           } else if (state is TasksLoadedState) {
+            TasksLoadedState(data: filteredItems);
             return GestureDetector(
               key: const Key('all_screen_tap'),
               behavior: HitTestBehavior.opaque,
@@ -161,7 +163,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     );
                                 }
                                 return null;
-                              }))
+                              })),
                 ],
               ),
             );

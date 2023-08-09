@@ -15,4 +15,12 @@ class TasksLoadedState extends TasksState {
     Tasks(taskId: '2', taskName: 'check2'),
     Tasks(taskId: '3', taskName: 'check3')
   ];
+
+  List<dynamic> _loadedTasks = [Tasks(taskId: '1')];
+
+  TasksLoadedState({data}) {
+    _loadedTasks = data ?? [];
+  }
+
+  List<Object> get props => [_loadedTasks];
 }
