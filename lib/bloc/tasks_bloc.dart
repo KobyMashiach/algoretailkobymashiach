@@ -8,13 +8,11 @@ part 'tasks_state.dart';
 class TasksBloc extends Bloc<TasksEvent, TasksState> {
   TasksBloc() : super(TasksInitialState()) {
     on<LoadTasksEvent>((event, emit) async {
-      await Future<void>.delayed(const Duration(seconds: 1));
       emit(TasksLoadedState());
     });
 
     on<LoadedTasksEvent>((event, emit) {
       if (state is TasksLoadedState) {
-        final state = this.state as TasksLoadedState;
         emit(TasksLoadedState());
       }
     });
