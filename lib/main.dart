@@ -87,7 +87,7 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
         ),
         // start with Home Screen page
-        home: const HomeScreen2(),
+        home: const HomeScreen(),
       ),
     );
   }
