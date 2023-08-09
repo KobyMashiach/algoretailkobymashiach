@@ -9,13 +9,13 @@ class TasksBloc extends Bloc<TasksEvent, TasksState> {
   TasksBloc() : super(TasksInitialState()) {
     on<LoadTasksEvent>((event, emit) async {
       await Future<void>.delayed(const Duration(seconds: 1));
-      emit(const TasksLoadedState(tasks: <Tasks>[]));
+      emit(TasksLoadedState());
     });
 
     on<LoadedTasksEvent>((event, emit) {
       if (state is TasksLoadedState) {
         final state = this.state as TasksLoadedState;
-        emit(TasksLoadedState(tasks: List.from(state.tasks)..add(event.tasks)));
+        emit(TasksLoadedState());
       }
     });
   }

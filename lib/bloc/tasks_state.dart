@@ -10,9 +10,9 @@ sealed class TasksState extends Equatable {
 class TasksInitialState extends TasksState {}
 
 class TasksLoadedState extends TasksState {
-  final List<Tasks> tasks;
-  const TasksLoadedState({required this.tasks});
-
-  @override
-  List<Object> get props => [tasks];
+  List<Tasks> tasks = [
+    Tasks(taskId: '1', taskName: 'check1'),
+    Tasks(taskId: '2', taskName: 'check2'),
+    Tasks(taskId: '3', taskName: 'check3')
+  ];
 }

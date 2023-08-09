@@ -9,8 +9,6 @@ sealed class TasksEvent extends Equatable {
 
 class LoadTasksEvent extends TasksEvent {}
 
-//! try add new event from json upload one by one
-
 class LoadedTasksEvent extends TasksEvent {
   final Tasks tasks;
 
